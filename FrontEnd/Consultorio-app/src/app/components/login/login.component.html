@@ -1,0 +1,33 @@
+<div class="d-flex">
+
+    <div class="login-container col-md-4 mt-5">
+        <div class="mt-5">
+
+            <form #form = "ngForm" class="login-form" (ngSubmit)="login(form)" method="POST">
+                <h1 class="text-center">Consultorio</h1>
+
+                        <div *ngIf="errores" class="alert alert-danger" role="alert">
+                            LLenar todos los campos y de manera correcta.
+                        </div>
+
+                        <input name="email" required [(ngModel)]="user.email" email 
+                        class="form-control mb-3" type="text" placeholder="Email">
+                       
+                        <input name="password" required [(ngModel)]="user.password" password
+                        class="form-control mb-3" type="password" placeholder="Contraseña"> 
+                
+                        <button type="submit" class="btn btn-block btn-info">Iniciar Sesion</button>
+                        <button type="button" (click)="borrar()" class="btn btn-block btn-danger">Borrar</button>
+                   
+                    <div>
+                        <span><a href="#">Crear cuenta</a></span>
+                    </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="col-md-5 pt-5">
+        <img  class="fondo-login" src="../../../assets/img/login-fondo.jpg" alt="fondo-login">
+    </div>
+</div>

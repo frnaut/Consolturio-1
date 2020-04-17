@@ -1,0 +1,61 @@
+<div *ngIf="created" class="alert alert-success" role="alert">
+  Elemento creado
+</div>
+
+<div class="mt-5">
+    <div class="mb-3">
+        <button *ngIf="!formMedico" (click)="formMedico = true" class="btn btn-info">Mostrar formulario</button>
+        <button *ngIf="formMedico" (click)="formMedico = false" class="btn btn-warning">Ocultar formulario</button>
+    </div>
+    
+    <div *ngIf="formMedico">
+        <form [formGroup]="postForm" (ngSubmit)="postMedico()">
+            <div>
+                <input formControlName="nombre" required
+                class="form-control mb-3" type="text" placeholder="Nombre">
+
+                <input formControlName="apellido" required
+                class="form-control mb-3" type="text" placeholder="Apellido">
+
+                <input formControlName="identificacion" required
+                class="form-control mb-3" type="text" placeholder="identificacion">
+
+                <select  formControlName="especialidadId" required class="form-control">
+                    <option *ngFor="let especialidad of especialidades"
+                    value="{{especialidad.especialidadId}}">{{especialidad.nombre}}</option>
+                </select>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-info w-25 mr-4">Agregar</button>
+                <button type="button" class="btn btn-danger w-25">Borrar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="mt-5">
+        <table class="table">
+            <thead class="encabezado-tabla">
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Especialidad</th>
+                <th scope="col">Herramientas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let medico of medicos">
+                <th scope="row">{{ medico.nombre }}</th>
+                <td>{{ medico.apellido }}</td>
+                <td>{{ medico.especialidad.nombre }}</td>
+                <td>
+                  <span><a (click)="verMedico(medico.medicoId)" 
+                    class="btn btn-success text-light mr-2">Ver</a></span>
+                  
+                    <span><a (click)="deleteMedico(medico.medicoId)" class="btn btn-danger text-light">Borrar</a></span>
+                </td> 
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

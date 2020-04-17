@@ -1,0 +1,53 @@
+<div *ngIf="crear" class="alert alert-success" role="alert">
+  Elemento creado!
+</div>
+
+<div class="mt-3">
+    <div>
+        <button (click)="espeFormulario = true" *ngIf="!espeFormulario" class="btn btn-info">Mostrar formulario</button>
+        <button (click)="espeFormulario = false" *ngIf="espeFormulario" class="btn btn-warning">Ocultar formulario</button>
+    </div>
+    <div *ngIf="espeFormulario">
+        <form [formGroup]="postForm" (ngSubmit)="postEspecialidades()" >
+            <h2>Agragar nueva cita</h2>
+            <div>
+                <input required formControlName="nombre"
+                class="form-control" type="text" placeholder="Nombre">
+            </div>
+            <div>
+                <textarea required formControlName="descripcion"
+                class="form-control" cols="30" rows="10" placeholder="Descripcion"></textarea>
+            </div>
+            <div class="mt-5">
+                <button type="submit" class="btn text-ligth btn-info w-25 mr-3">Agregar</button>
+                <button type="button" class="btn text-ligth btn-danger w-25">Borrar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="mt-5" *ngIf="!action">
+        <table class="table" >
+            <thead class="encabezado-tabla">
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Herramientas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let especialidad of especialidades">
+                <th scope="row">{{ especialidad.nombre }}</th>
+                <td >{{ especialidad.descripcion }}</td>
+                <td>
+                  <span><a (click)="verEspecialidad(especialidad.especialidadId)" 
+                  class="btn btn-success mr-2 btn text-light">Ver</a></span>
+
+                  <span><a (click)="deleteEspecialidad(especialidad.especialidadId)" 
+                  class="btn btn-danger btn text-light">Borrar</a></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+</div>

@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+.contenedor {
+    padding-left: 150px;
+    padding-right: 150px;
+}
+.encabezado-tabla{
+    background-color: #2f3f80;
+    color: white;
+}
+
+.descripcio{
+    border: 1px black solid;
+    padding: 10px;
+    border-radius: 10px;
+}

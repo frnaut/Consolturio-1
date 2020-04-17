@@ -1,0 +1,42 @@
+<div class="mt-5">
+    <div>
+        <h2>Especialida:</h2>
+        <div>
+            <div class="mb-3 d-flex justify-content-between">
+                <h3>{{especialidad.nombre}}</h3>
+                
+                <button  (click)="editarForm = true" *ngIf="!editarForm"
+                class="btn btn-warning">Editar</button>
+
+                <button (click)="editarForm = false" *ngIf="editarForm" 
+                class="btn btn-danger">Cancelar</button>
+            </div>
+            
+            <div class="descripcio">
+                <p>{{ especialidad.descripcion }}</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="alert" class="alert alert-success mt-3" role="alert">
+        Especialida Actualizada
+      </div>
+
+    <div *ngIf="editarForm" class="mt-5 descripcio">
+        <h3>Editar:</h3>
+        <form [formGroup]="editForm" (ngSubmit)="PutEspecialidad()">
+            <div>
+                <input required formControlName="nombre"
+                class="form-control mb-3" type="text" placeholder="Nombre">
+                
+                <input required formControlName="descripcion"
+                class="form-control" type="text" placeholder="Descripcion">
+            </div>
+            <div class="mt-4">
+                <button type="submit" class="mr-3 btn btn-success">Guargar</button>
+                <button type="button" class="btn btn-danger">Borrar</button>
+            </div>
+        </form>
+    </div>
+</div>

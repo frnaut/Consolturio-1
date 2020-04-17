@@ -1,0 +1,59 @@
+<div *ngIf="creado" class="alert alert-success" role="alert">
+  Elemento Creado!
+</div>
+
+
+<div class="mt-3 mt-5 mb-5">
+    <div>
+        <button *ngIf="!formPaciente" (click)="formPaciente = true" class="btn btn-info">Mostrar formulario</button>
+        <button *ngIf="formPaciente" (click)="formPaciente = false" class="btn btn-warning">Ocultar formulario</button>
+    </div>
+
+    <div *ngIf="formPaciente">
+        <form [formGroup]="postForm" (ngSubmit)="postPaciente()">
+            <div>
+                <input formControlName="nombre" required
+                class="form-control" type="text" placeholder="Nombre">
+
+                <input formControlName="apellido" required
+                class="form-control" type="text" placeholder="Apellido">
+
+                <input formControlName="identificacion" required
+                class="form-control" type="number" placeholder="Identificacion">
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-info w-25 mr-4">Agregar</button>
+                <button type="button" class="btn btn-danger w-25">Borrar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="mt-3">
+        <h2>Listado de pacientes</h2>
+
+        <table class="table">
+            <thead class="encabezado-tabla">
+              <tr>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Herramientas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let paciente of pacientes">
+                <th scope="row">{{ paciente.nombre }}</th>
+                <td>{{ paciente.apellido }}</td>
+                <td>
+                    <span><a (click)="verPaciente(paciente.pacienteId)" 
+                      class="btn btn-success text-light mr-2">Ver</a></span>
+
+                    <span><a (click)="deletePaciente(paciente.pacienteId)" 
+                      class="btn btn-danger text-light">Borrar</a></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+</div>
