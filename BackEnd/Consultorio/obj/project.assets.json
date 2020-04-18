@@ -9505,11 +9505,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Desarrollo\\Proyectos\\BackEnd\\Consultorio\\Consultorio.csproj",
+      "projectUniqueName": "D:\\Desarrollo\\Proyectos\\Consultorio 1\\Consolturio-1\\BackEnd\\Consultorio\\Consultorio.csproj",
       "projectName": "Consultorio",
-      "projectPath": "D:\\Desarrollo\\Proyectos\\BackEnd\\Consultorio\\Consultorio.csproj",
+      "projectPath": "D:\\Desarrollo\\Proyectos\\Consultorio 1\\Consolturio-1\\BackEnd\\Consultorio\\Consultorio.csproj",
       "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-      "outputPath": "D:\\Desarrollo\\Proyectos\\BackEnd\\Consultorio\\obj\\",
+      "outputPath": "D:\\Desarrollo\\Proyectos\\Consultorio 1\\Consolturio-1\\BackEnd\\Consultorio\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",

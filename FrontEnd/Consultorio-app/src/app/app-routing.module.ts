@@ -12,19 +12,20 @@ import { PacienteComponent } from './components/paciente/paciente.component';
 import { MedicoComponent } from './components/medico/medico.component';
 import { CitaComponent } from './components/cita/cita.component';
 
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent},
-  { path: 'citas', component: CitasComponent},
-  { path: 'cita/:id', component: CitaComponent },
-  { path: 'pacientes', component: PacientesComponent},
-  { path: 'paciente/:id', component: PacienteComponent },
-  { path: 'medicos', component: MedicosComponent},
-  { path: 'medico/:id', component: MedicoComponent},
-  { path: 'especialidades', component: EspecialidadesComponent },
-  { path: 'especialidad/:id', component: EspecialidadComponent},
-  { path: '',   redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'citas', component: CitasComponent, canActivate: [AuthGuard]},
+  { path: 'cita/:id', component: CitaComponent, canActivate: [AuthGuard] },
+  { path: 'pacientes', component: PacientesComponent, canActivate: [AuthGuard]},
+  { path: 'paciente/:id', component: PacienteComponent, canActivate: [AuthGuard] },
+  { path: 'medicos', component: MedicosComponent, canActivate: [AuthGuard]},
+  { path: 'medico/:id', component: MedicoComponent, canActivate: [AuthGuard]},
+  { path: 'especialidades', component: EspecialidadesComponent, canActivate: [AuthGuard]},
+  { path: 'especialidad/:id', component: EspecialidadComponent, canActivate: [AuthGuard]},
+  { path: '*',   redirectTo: 'home', pathMatch: 'full' },
   
 ];
 

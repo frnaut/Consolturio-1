@@ -27,6 +27,18 @@ export class ConsultorioService {
     return this.http.post(`${this.URL}/api/cuentas/login`, user)
                       
   }
+  isLogin(): boolean{
+    var token = localStorage.getItem('token')
+    var exp = localStorage.getItem("expiration");
+    var experation = new Date(exp);
+    
+    if (token.length > 1){
+      if(experation > new Date)
+        {
+          return true;
+        }  
+    }
+  }
 
 
   //#region Citas
